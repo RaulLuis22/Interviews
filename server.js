@@ -1,11 +1,17 @@
+// server.js
 const express = require('express');
+require('dotenv').config();  // Load environment variables from .env file
 const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
+console.log("HERE");
+const serviceAccountKey = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://your-firebase-project-id.firebaseio.com',
+  credential: admin.credential.cert(serviceAccountKey),
+  databaseURL: 'https://interviews-5ef65.firebaseio.com',
 });
+
+// ...rest of your code
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,7 +19,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// app.use(cors());
 
 // Sample route
 app.get('/', (req, res) => {
