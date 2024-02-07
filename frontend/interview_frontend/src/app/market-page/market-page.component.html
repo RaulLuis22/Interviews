@@ -1,0 +1,15 @@
+<!-- market-page.component.html -->
+<div class="market-container">
+    <h1>Marketplace</h1>
+    <div class="interview-list">
+      <div *ngFor="let series of interviewSeries">
+        <div class="series-card">
+          <h2>{{ series.title }}</h2>
+          <p>Author: {{ series.author }}</p>
+          <p>Price: {{ series.price }}</p>
+          <button>Purchase</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>

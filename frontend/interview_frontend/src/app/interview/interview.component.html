@@ -1,1 +1,17 @@
-<p>interview works!</p>
+
+<!-- interview.component.html -->
+<div *ngFor="let interview of interviews">
+    <div>
+      <ng-template pTemplate="title">
+        {{ interview.title }}
+      </ng-template>
+      <ng-template pTemplate="subtitle">
+        {{ interview.author }}
+      </ng-template>
+      <ng-template pTemplate="content">
+        {{ interview.description }}
+        <button (click)="('Hi')">Purchase</button>
+      </ng-template>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
